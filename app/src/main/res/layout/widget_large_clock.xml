@@ -3,8 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/glass_card"
-    android:orientation="vertical"
     android:gravity="center"
+    android:orientation="vertical"
     android:padding="16dp">
 
     <TextClock
@@ -13,14 +13,16 @@
         android:format12Hour="hh:mm"
         android:format24Hour="kk:mm"
         android:textColor="#FFFFFFFF"
-        android:textSize="44sp"
+        android:textSize="54sp"
         android:textStyle="bold" />
 
     <TextClock
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
         android:format12Hour="EEEE, d MMMM"
         android:format24Hour="EEEE, d MMMM"
-        android:textColor="#CCFFFFFF"
-        android:textSize="13sp" />
+        android:textColor="#B3FFFFFF"
+        android:textSize="14sp"
+        android:textStyle="bold" />
 </LinearLayout>

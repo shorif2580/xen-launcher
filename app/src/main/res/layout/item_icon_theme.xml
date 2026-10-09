@@ -2,36 +2,38 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="horizontal"
+    android:layout_marginBottom="10dp"
+    android:background="@drawable/glass_card"
     android:gravity="center_vertical"
-    android:padding="12dp"
-    android:layout_marginBottom="8dp"
-    android:background="@drawable/glass_card">
+    android:orientation="horizontal"
+    android:padding="14dp">
 
     <ImageView
-        android:id="@+id/ivAppIcon"
+        android:id="@+id/ivIconPreview"
         android:layout_width="48dp"
         android:layout_height="48dp"
-        android:background="@drawable/glass_card"
-        android:padding="4dp" />
+        android:background="@drawable/glass_dock"
+        android:padding="6dp" />
 
     <TextView
-        android:id="@+id/tvAppName"
+        android:id="@+id/tvIconName"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
         android:layout_marginStart="14dp"
+        android:layout_weight="1"
+        android:text="App Name"
         android:textColor="#FFFFFFFF"
-        android:textSize="14sp"
+        android:textSize="15sp"
         android:textStyle="bold" />
 
     <Button
-        android:id="@+id/btnApplyTheme"
+        android:id="@+id/btnPinIcon"
         android:layout_width="wrap_content"
-        android:layout_height="38dp"
-        android:text="Add Glass Icon"
+        android:layout_height="36dp"
+        android:background="@drawable/btn_gradient"
+        android:text="Apply Icon"
         android:textAllCaps="false"
         android:textColor="#FFFFFFFF"
         android:textSize="11sp"
-        android:background="@drawable/glass_button" />
+        android:textStyle="bold" />
 </LinearLayout>

@@ -1,8 +1,7 @@
 <resources>
-    <style name="Theme.XenLauncher" parent="Theme.MaterialComponents.NoActionBar">
-        <item name="android:windowNoTitle">true</item>
-        <item name="android:windowActionBar">false</item>
-        <item name="android:statusBarColor">#00000000</item>
-        <item name="android:navigationBarColor">#00000000</item>
+    <style name="Theme.XenStudio" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:statusBarColor">#FF090A0F</item>
+        <item name="android:navigationBarColor">#FF090A0F</item>
+        <item name="android:windowBackground">#FF090A0F</item>
     </style>
 </resources>

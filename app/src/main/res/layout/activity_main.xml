@@ -2,206 +2,215 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#0F172A"
+    android:background="#FF08090C"
     android:orientation="vertical">
 
+    <!-- হেডার -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="18dp"
-        android:background="#1E293B">
+        android:background="#FF111319"
+        android:gravity="center_vertical"
+        android:paddingStart="20dp"
+        android:paddingTop="16dp"
+        android:paddingEnd="20dp"
+        android:paddingBottom="16dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="XEN CUSTOMIZER"
+            android:textColor="#FFFFFFFF"
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Xen Customizer"
-            android:textColor="#FFFFFFFF"
-            android:textSize="20sp"
+            android:background="@drawable/chip_bg"
+            android:paddingStart="12dp"
+            android:paddingTop="4dp"
+            android:paddingEnd="12dp"
+            android:paddingBottom="4dp"
+            android:text="PRO UNLOCKED"
+            android:textColor="#FF38BDF8"
+            android:textSize="11sp"
             android:textStyle="bold" />
     </LinearLayout>
 
+    <!-- মূল কনটেন্ট এরিয়া -->
     <FrameLayout
-        android:id="@+id/contentArea"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        android:padding="16dp">
+        android:layout_weight="1">
 
-        <ScrollView
-            android:id="@+id/tabWallpaperView"
+        <!-- ১. উইজেট ট্যাব (Glassify Grid) -->
+        <LinearLayout
+            android:id="@+id/viewTabWidgets"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="14dp">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvWidgetsList"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+
+        <!-- ২. ওয়ালপেপার স্টুডিও ট্যাব -->
+        <ScrollView
+            android:id="@+id/viewTabWallpaper"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:padding="16dp">
 
-                <ImageView
-                    android:id="@+id/ivWallpaperPreview"
+                <FrameLayout
                     android:layout_width="match_parent"
-                    android:layout_height="240dp"
-                    android:scaleType="centerCrop"
-                    android:background="#1E293B" />
+                    android:layout_height="320dp"
+                    android:background="#FF141722">
+
+                    <ImageView
+                        android:id="@+id/ivStudioPreview"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop"
+                        android:background="#FF1C2030" />
+
+                    <!-- লাইভ ক্লক ওভারলে প্রিভিউ -->
+                    <LinearLayout
+                        android:id="@+id/layoutClockOverlay"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="top"
+                        android:layout_marginTop="30dp"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextClock
+                            android:id="@+id/tcStudioClock"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:format12Hour="hh:mm"
+                            android:format24Hour="kk:mm"
+                            android:textColor="#FFFFFFFF"
+                            android:textSize="50sp"
+                            android:textStyle="bold" />
+
+                        <TextClock
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:format12Hour="EEEE, d MMMM"
+                            android:format24Hour="EEEE, d MMMM"
+                            android:textColor="#CCFFFFFF"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </FrameLayout>
 
                 <Button
-                    android:id="@+id/btnSelectPhoto"
+                    android:id="@+id/btnPickImage"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
-                    android:text="Select Photo from Gallery"
+                    android:layout_height="44dp"
+                    android:layout_marginTop="14dp"
+                    android:background="@drawable/btn_gradient"
+                    android:text="Choose Photo from Gallery"
                     android:textAllCaps="false"
-                    android:background="@drawable/glass_button" />
+                    android:textColor="#FFFFFFFF"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:text="Blur Amount"
-                    android:textColor="#FFFFFFFF" />
+                    android:textColor="#FFFFFFFF"
+                    android:textStyle="bold" />
 
                 <SeekBar
                     android:id="@+id/sbBlur"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:max="25"
-                    android:progress="10" />
+                    android:progress="8" />
 
-                <Button
-                    android:id="@+id/btnSetWallpaper"
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="Darken / Tint Amount"
+                    android:textColor="#FFFFFFFF"
+                    android:textStyle="bold" />
+
+                <SeekBar
+                    android:id="@+id/sbDim"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:max="100"
+                    android:progress="30" />
+
+                <CheckBox
+                    android:id="@+id/cbClockOverlay"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:checked="true"
+                    android:text="Burn Glass Clock into Wallpaper"
+                    android:textColor="#FF38BDF8"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/btnApplyWallpaper"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
                     android:layout_marginTop="16dp"
-                    android:text="Apply as Home &amp; Lock Wallpaper"
+                    android:background="@drawable/btn_gradient"
+                    android:text="Set as Home &amp; Lock Wallpaper"
                     android:textAllCaps="false"
-                    android:background="@drawable/glass_button" />
-            </LinearLayout>
-        </ScrollView>
-
-        <ScrollView
-            android:id="@+id/tabWidgetsView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:visibility="gone">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Available Glass Widgets"
                     android:textColor="#FFFFFFFF"
-                    android:textSize="16sp"
-                    android:textStyle="bold"
-                    android:layout_marginBottom="12dp" />
-
-                <Button
-                    android:id="@+id/btnAddClockWidget"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="+ Add Glass Clock Widget"
-                    android:textAllCaps="false"
-                    android:background="@drawable/glass_button"
-                    android:layout_marginBottom="12dp" />
-
-                <Button
-                    android:id="@+id/btnAddStatsWidget"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="+ Add Battery &amp; Storage Stats Widget"
-                    android:textAllCaps="false"
-                    android:background="@drawable/glass_button"
-                    android:layout_marginBottom="12dp" />
-
-                <Button
-                    android:id="@+id/btnAddSearchWidget"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="+ Add Glass Search Bar"
-                    android:textAllCaps="false"
-                    android:background="@drawable/glass_button" />
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
             </LinearLayout>
         </ScrollView>
 
-        <ScrollView
-            android:id="@+id/tabGlassifyView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:visibility="gone">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Glassify - Glass Docks &amp; Containers"
-                    android:textColor="#FFFFFFFF"
-                    android:textSize="16sp"
-                    android:textStyle="bold"
-                    android:layout_marginBottom="12dp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Place frosted glass background panels behind your home screen apps."
-                    android:textColor="#CCFFFFFF"
-                    android:textSize="13sp"
-                    android:layout_marginBottom="16dp" />
-
-                <Button
-                    android:id="@+id/btnAddDockWidget"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="+ Add Frosted Glass Dock Container"
-                    android:textAllCaps="false"
-                    android:background="@drawable/glass_button" />
-            </LinearLayout>
-        </ScrollView>
-
+        <!-- ৩. আইকন প্যাক ট্যাব -->
         <LinearLayout
-            android:id="@+id/tabIconsView"
+            android:id="@+id/viewTabIcons"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
+            android:padding="14dp"
             android:visibility="gone">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Theme App Icons (No Launcher Needed)"
+                android:layout_marginBottom="12dp"
+                android:text="Frosted Glass App Icons (No Launcher Needed)"
                 android:textColor="#FFFFFFFF"
-                android:textSize="15sp"
-                android:textStyle="bold"
-                android:layout_marginBottom="10dp" />
+                android:textSize="14sp"
+                android:textStyle="bold" />
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rvApps"
+                android:id="@+id/rvIconsList"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
         </LinearLayout>
     </FrameLayout>
 
+    <!-- নিচের ৩টি প্রধান নেভিগেশন বাটন -->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:background="#1E293B"
+        android:layout_height="60dp"
+        android:background="#FF111319"
         android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/btnNavWallpaper"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:text="Wallpaper"
-            android:textSize="10sp"
-            android:textColor="#FF38BDF8"
-            style="?android:attr/borderlessButtonStyle" />
 
         <Button
             android:id="@+id/btnNavWidgets"
@@ -209,18 +218,20 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="Widgets"
-            android:textSize="10sp"
-            android:textColor="#FFFFFFFF"
+            android:textColor="#FF38BDF8"
+            android:textSize="12sp"
+            android:textStyle="bold"
             style="?android:attr/borderlessButtonStyle" />
 
         <Button
-            android:id="@+id/btnNavGlassify"
+            android:id="@+id/btnNavWallpaper"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="Glassify"
-            android:textSize="10sp"
-            android:textColor="#FFFFFFFF"
+            android:text="Wallpaper"
+            android:textColor="#80FFFFFF"
+            android:textSize="12sp"
+            android:textStyle="bold"
             style="?android:attr/borderlessButtonStyle" />
 
         <Button
@@ -228,9 +239,10 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="Icons"
-            android:textSize="10sp"
-            android:textColor="#FFFFFFFF"
+            android:text="Glass Icons"
+            android:textColor="#80FFFFFF"
+            android:textSize="12sp"
+            android:textStyle="bold"
             style="?android:attr/borderlessButtonStyle" />
     </LinearLayout>
 </LinearLayout>

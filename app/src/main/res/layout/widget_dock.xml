@@ -3,13 +3,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/glass_dock"
-    android:padding="8dp">
+    android:padding="10dp">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="Frosted Glass Container"
-        android:textColor="#40FFFFFF"
-        android:textSize="11sp" />
+        android:text="Frosted Glass Dock Plate"
+        android:textColor="#4DFFFFFF"
+        android:textSize="12sp"
+        android:textStyle="bold" />
 </FrameLayout>
