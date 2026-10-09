@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace 'com.xenlauncher.shorif'
+    namespace 'com.xencustomizer.shorif'
     compileSdk 34
 
     defaultConfig {
-        applicationId "com.xenlauncher.shorif"
+        applicationId "com.xencustomizer.shorif"
         minSdk 26
         targetSdk 34
         versionCode 1
